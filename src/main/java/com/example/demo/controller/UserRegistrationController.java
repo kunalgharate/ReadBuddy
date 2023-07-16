@@ -23,8 +23,7 @@ public class UserRegistrationController {
 	  return service.addUserRegistration(user);
 	  
 	  }
-	
-	
+
 	@PostMapping("/demo")
 	public String getName() {
 		return "rupesh";
