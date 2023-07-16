@@ -1,17 +1,16 @@
 package com.example.demo.config;
 
+
+import lombok.*;
+
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@Builder
+@ToString
 public class JwtResponse {
-    private String token;
-    public JwtResponse(String token) {
-        this.token = token;
-    }
-    public String getToken() {
-        return token;
-    }
+    private String jwtToken;
+    private String username;
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    // Getters
 }
