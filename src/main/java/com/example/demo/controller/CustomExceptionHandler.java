@@ -9,6 +9,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.example.demo.BookNotFoundException;
 import com.example.demo.CategoryNotFoundException;
+import com.example.demo.JwtExpiredException;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,6 +37,12 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, "An error occurred");
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+    
+    @ExceptionHandler(JwtExpiredException.class)
+    public ResponseEntity<String> handleJwtExpiredException(JwtExpiredException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+    }
+    
 
     // Define ErrorResponse class to represent the error response
     @Data
